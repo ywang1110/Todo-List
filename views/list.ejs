@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>To Do List</title>
-</head>
-<body>
-<!-- Run javaScript code inside the list.ejs-->
-<h1> <%= kindOfDay %> </h1>
+<%- include("header") -%>
 
-<ul>
+<div class="box" id="heading">
+    <h1> <%= listTitle %> </h1>
+</div>
 
-    <% for (var i=0; i<newListItems.length; i++) { %>
-        <li> <%= newListItems[i] %></li>
+<div class="box">
+    <% for (var i=0; i<itemsList.length; i++) { %>
+    <div class="item">
+        <input type="checkbox">
+        <p> <%= itemsList[i] %> </p>
+    </div>
     <% } %>
-</ul>
+        <form class="item" action="/" method="post">
+            <input type="text" name="itemName" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="list" value="<%= listTitle %>">+</button>
+        </form>
+</div>
 
-<form action="/" method="post">
-    <input type="text" name="newItem">
-    <button type="submit">Add</button>
-</form>
+<%- include("footer") -%>
 
-</body>
-</html>
+
