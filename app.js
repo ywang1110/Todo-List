@@ -114,7 +114,7 @@ app.get("/:customerListName", function (req, res) {
                      items: defaultItems
                  });
                  list.save();
-                 res.redirect("/");
+                 res.redirect("/"+customerListName);
              } else {
                  // show an existing list
                  // console.log(foundList);
